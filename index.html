@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Jeder</title>
+    <link rel="shortcut icon" href="asset/img/patrick.jpeg" />
+    <link rel="stylesheet" href="asset/style.css">
+
+    <!-- Font Awesome untuk icon -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->    
+        <aside class="sidebar">
+
+            <div class="logo">
+             <h2>IoT <span>Dashboard</span></h2>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Live Data</span>
+                    <small>Hot</small>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-gears"></i>
+                    <span>Settings</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History</span>
+                </a>
+
+            </nav>
+
+           
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <section class="welcome">
+
+                <h1>
+                    Welcome to <span>My IoT Dashboard</span>
+                </h1>
+
+
+            </section>
+
+
+            <!-- CARD -->
+            <section class="cards">
+
+                <!-- TEMPERATURE -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="card-title">
+                            <i class="fa-solid fa-temperature-half temperature-icon"></i>
+                            <span>TEMPERATURE</span>
+                        </div>
+
+                        <i class="fa-solid fa-arrows-rotate refresh-icon"></i>
+
+                    </div>
+
+                    <h2 id="temperature">--°C</h2>
+
+                    <p class="card-info">
+                        <i class="fa-regular fa-clock"></i>
+                        Updated: Connection Error
+                    </p>
+
+                </div>
+
+
+                <!-- HUMIDITY -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="card-title">
+                            <i class="fa-solid fa-droplet humidity-icon"></i>
+                            <span>HUMIDITY</span>
+                        </div>
+
+                        <span class="status stable">
+                            Stable
+                        </span>
+
+                    </div>
+
+                    <h2 id="humidity">--%</h2>
+
+                    <p class="card-info">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Ideal range: 40-70%
+                    </p>
+
+                </div>
+
+
+                <!-- DEVICE STATUS -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div class="card-title">
+                            <i class="fa-solid fa-plug device-icon"></i>
+                            <span>DEVICE STATUS</span>
+                        </div>
+
+                        <span class="online">
+                            <i class="fa-solid fa-circle"></i>
+                            Online
+                        </span>
+
+                    </div>
+
+                    <h2 class="device-name">ESP32</h2>
+
+                    <p class="card-info">
+                        <i class="fa-solid fa-code-branch"></i>
+                        Firmware: v2.1.8
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+    <script src="asset/script.js"></script>
+
+</body>
+</html>
