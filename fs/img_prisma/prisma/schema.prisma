@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  fullname  String
+  email     String   @unique
+  password  String
+  role      String   @default("staff")
+  token     String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  kodeUser  String?  @unique @map("kode_user") @db.VarChar(20)
+
+  @@map("users")
+}
+
+model facility {
+  kode                   String              @unique @map("kode_facility")
+  nama                   String
+  createdAt              DateTime            @default(now()) @map("created_at")
+  updatedAt              DateTime            @updatedAt @map("updated_at")
+  tbl_type_unit_facility type_unit_facility?
+
+  @@map("tbl_facility")
+}
+
+model type_unit_facility {
+  id            Int      @id @default(autoincrement()) @map("id_unit_type")
+  kode          String   @unique @map("kode_facility")
+  tbl_type_unit unit     @relation(fields: [id], references: [id], onUpdate: Restrict, map: "tbl_type_unit_facility_ibfk_1")
+  tbl_facility  facility @relation(fields: [kode], references: [kode], onUpdate: Restrict, map: "tbl_type_unit_facility_ibfk_2")
+
+  @@map("tbl_type_unit_facility")
+}
+
+model unit {
+  id                     Int                 @id @default(autoincrement()) @map("id_unit_type")
+  nama                   String              @map("nama_type_unit")
+  branch                 Int                 @default(0) @map("branch_id")
+  createdAt              DateTime            @default(now()) @map("created_at")
+  updatedAt              DateTime            @updatedAt @map("updated_at")
+  tbl_type_unit_facility type_unit_facility?
+
+  @@map("tbl_type_unit")
+}
